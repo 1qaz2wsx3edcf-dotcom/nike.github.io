@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Музыкальная метка</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f5f5f7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        /* Стиль для интерактивной картинки-кнопки */
+        .image-button {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            outline: none;
+            width: 100%;
+            max-width: 300px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-radius: 16px;
+        }
+
+        /* Сама картинка внутри кнопки */
+        .image-button img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            display: block;
+        }
+
+        /* Эффект при легком наведении (для ПК) или нажатии (для телефонов) */
+        .image-button:active {
+            transform: scale(0.96); /* Картинка будет изящно сжиматься при клике */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <button class="image-button" onclick="playSound()">
+            <img src="images.png" alt="Нажмите, чтобы включить звук">
+        </button>
+    </div>
+
+    <audio id="audio" src="real_1.mp3"></audio>
+
+    <script>
+        function playSound() {
+            const audio = document.getElementById('audio');
+            audio.currentTime = 0; 
+            audio.play();
+        }
+    </script>
+
+</body>
+</html>
